@@ -6,6 +6,7 @@ const userRouter = require('./Routes/todo')
 const { connectMongoDb } = require('./connection')
 const cors = require('cors')
 
+
 // Connection
 connectMongoDb(process.env.MONGO_URL)
   .then(() => {
@@ -13,6 +14,7 @@ connectMongoDb(process.env.MONGO_URL)
   })
   .catch((err) => console.log('err - ', err))
 
+  server.use(cors());
 // middleware - Plugin
 server.use(
   cors({
